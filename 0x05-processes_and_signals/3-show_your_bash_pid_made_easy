@@ -9,7 +9,7 @@ do
     if [ "$pname" != "" ]; then
         # Extract process ID from the directory name
         pid=$(basename "$pid")
-        echo "PID: $pid, Process Name: $pname"
+        echo "$pid,$pname"
     fi
 done
 
