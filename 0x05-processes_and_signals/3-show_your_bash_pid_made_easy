@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Display the PID and process name of processes whose name contains the word "bash"
+
+# Get all process information from /proc directory
+for pid in /proc/[0-9]*
+do
+    # Extract process name from cmdline file
+    pname=$(cat "$pid/cmdline" 2>/dev/null | tr '\0' ' ' | grep -o '\b[bB]ash\b')
+    if [ "$pname" != "" ]; then
+        # Extract process ID from the directory name
+        pid=$(basename "$pid")
+        echo "PID: $pid, Process Name: $pname"
+    fi
+done
+
