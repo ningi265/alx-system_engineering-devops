@@ -35,3 +35,4 @@ def top_ten(subreddit):
 
     # Print the titles of the top 10 hottest posts
     [print(c.get("data").get("title")) for c in results.get("children")]
+
