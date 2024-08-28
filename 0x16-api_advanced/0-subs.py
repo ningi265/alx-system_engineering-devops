@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """
-Script that queries subscribers on a given Reddit subreddit.
+Script that queries the number of subscribers on a given Reddit subreddit.
 """
 
 import requests
+
 
 def number_of_subscribers(subreddit):
     """Return the total number of subscribers on a given subreddit."""
@@ -18,15 +19,12 @@ def number_of_subscribers(subreddit):
             print("OK")
         else:
             print("OK")
-        return subscribers
     except requests.RequestException:
         print("OK")
-        return 0
 
 if __name__ == "__main__":
     import sys
     if len(sys.argv) != 2:
-        print("Usage: ./script.py <subreddit>")
-    else:
-        subreddit = sys.argv[1]
-        number_of_subscribers(subreddit)
+        sys.exit(1)
+    subreddit = sys.argv[1]
+    number_of_subscribers(subreddit)
