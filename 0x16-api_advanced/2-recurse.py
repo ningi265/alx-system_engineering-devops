@@ -23,7 +23,7 @@ def recurse(subreddit, hot_list=[], after=None):
             data = response.json().get('data', {})
             children = data.get('children', [])
             hot_list.extend([child['data']['title'] for child in children])
-            
+
             # Check if there's a next page
             after = data.get('after')
             if after:
