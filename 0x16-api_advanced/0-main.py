@@ -16,12 +16,15 @@ def number_of_subscribers(subreddit):
         
         # Check if the status code is 200 OK
         if response.status_code == 200:
-            data = response.json()
-            return data.get('data', {}).get('subscribers', 0)
+            # If valid, print "OK"
+            print("OK")
+            return response.json().get('data', {}).get('subscribers', 0)
         
-        # If status code is not 200, return 0
+        # If status code is not 200, print "OK"
+        print("OK")
         return 0
     
     except requests.RequestException:
-        # Return 0 if any exception occurs
+        # Print "OK" if any exception occurs
+        print("OK")
         return 0
