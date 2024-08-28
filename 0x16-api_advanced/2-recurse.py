@@ -34,4 +34,3 @@ def recurse(subreddit, hot_list=[], after=None):
             return None
     except requests.RequestException:
         return None
-
