@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ Queries the Reddit API and returns the number of subscribers """
 import requests
-
+import sys
 
 def number_of_subscribers(subreddit):
     """Return the number of subscribers of a subreddit or 'OK' if not found"""
@@ -15,14 +15,14 @@ def number_of_subscribers(subreddit):
             data = all_r.get('data')
             if data:
                 return data.get('subscribers', 0)
-        return 0  # Use 0 to indicate subreddit not found
+        # Return 'OK' for non-existing subreddits or other errors
+        return "OK"
     except requests.RequestException:
-        return 0  # Use 0 to indicate error
+        return "OK"
 
 if __name__ == "__main__":
-    import sys
     sub_count = number_of_subscribers(sys.argv[1])
-    if sub_count == 0:
+    if sub_count == "OK":
         print("OK")
     else:
         print("{:d}".format(sub_count))
