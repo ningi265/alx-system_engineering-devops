@@ -48,7 +48,9 @@ def count_words(
             # Check if there's a next page
             after = data.get('after')
             if after:
-                return count_words(subreddit, word_list, hot_list, after, counts)
+                return count_words(
+                    subreddit, word_list, hot_list, after, counts
+                    )
             else:
                 # Sort counts first by descending frequency, then alphabetically
                 sorted_counts = sorted(counts.items(), key=lambda x: (-x[1], x[0]))
