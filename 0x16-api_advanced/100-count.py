@@ -6,7 +6,6 @@ and prints a sorted count of given keywords.
 """
 
 import requests
-import re
 from collections import defaultdict
 
 
