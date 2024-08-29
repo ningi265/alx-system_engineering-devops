@@ -20,7 +20,7 @@ def number_of_subscribers(subreddit):
             data = response.json()
             subscribers = data.get('data', {}).get('subscribers', 0)
             return subscribers
-  
+
         # If the status code is not 200, return 0
         return 0
 
