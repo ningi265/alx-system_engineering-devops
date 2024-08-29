@@ -1,14 +1,6 @@
-# 0-strace_is_your_friend.pp
+# fixes bad 'phpp' to 'php' in the wordpress file 'wp-settings.php' on apache2 server
 
-exec { 'fix-apache-permissions':
-  command => 'chmod 644 /var/www/html/.htaccess && chown www-data:www-data /var/www/html/.htaccess',
-  path    => ['/bin', '/usr/bin'],
-  onlyif  => 'test -e /var/www/html/.htaccess',
+exec { 'fix-wordpress_site':
+    command => 'sed -i s/phpp/php/g /var/www/html/wp-settings.php',
+    path    => '/usr/bin/:/bin/',
 }
-
-service { 'apache2':
-  ensure => 'running',
-  enable => true,
-  require => Exec['fix-apache-permissions'],
-}
-
