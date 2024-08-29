@@ -52,7 +52,7 @@ def count_words(
                     subreddit, word_list, hot_list, after, counts
                     )
             else:
-                # Sort counts first by descending frequency, 
+                # Sort counts first by descending frequency,
                 # then alphabetically
                 sorted_counts = sorted(
                     counts.items(), key=lambda x: (-x[1], x[0])
@@ -64,4 +64,3 @@ def count_words(
             return
     except requests.RequestException:
         return
-    
