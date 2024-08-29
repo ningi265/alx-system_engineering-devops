@@ -5,6 +5,7 @@ parses the titles of all hot articles,
 and prints a sorted count of given keywords.
 """
 
+import re
 import requests
 from collections import defaultdict
 
@@ -61,5 +62,6 @@ def count_words(
                         print(f"{word}: {count}")
         else:
             return
-    except requests.RequestException:
+    except requests.RequestException as e:
+        print(f"Error fetching data from Reddit: {e}")
         return
