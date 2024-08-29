@@ -5,9 +5,9 @@ parses the titles of all hot articles,
 and prints a sorted count of given keywords.
 """
 
+from collections import defaultdict
 import re
 import requests
-from collections import defaultdict
 
 
 def count_words(
