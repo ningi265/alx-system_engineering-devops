@@ -19,11 +19,15 @@ def count_words(
         counts = defaultdict(int)
 
     url = f"https://www.reddit.com/r/{subreddit}/hot.json"
-    headers = {"User-Agent": "python:keyword-counter:v1.0 (by /u/your_username)"}
+    headers = {
+        "User-Agent": "python:keyword-counter:v1.0 (by /u/your_username)"
+        }
     params = {"after": after, "limit": 100}
 
     try:
-        response = requests.get(url, headers=headers, params=params, allow_redirects=False)
+        response = requests.get(
+            url, headers=headers, params=params, allow_redirects=False
+            )
         if response.status_code == 200:
             data = response.json().get('data', {})
             children = data.get('children', [])
