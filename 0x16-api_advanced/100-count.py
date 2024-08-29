@@ -40,9 +40,11 @@ def count_words(
                 title = post['data']['title'].lower()
                 for word in normalized_word_list:
                     # Use regex to match whole words only
-                    matches = re.findall(r'\b{}\b'.format(re.escape(word)), title)
+                    matches = re.findall(
+                        r'\b{}\b'.format(re.escape(word)), title
+                        )
                     counts[word] += len(matches)
-            
+
             # Check if there's a next page
             after = data.get('after')
             if after:
