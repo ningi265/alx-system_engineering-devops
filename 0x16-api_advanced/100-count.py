@@ -31,7 +31,7 @@ def count_words(
         if response.status_code == 200:
             data = response.json().get('data', {})
             children = data.get('children', [])
-            
+
             # Normalize word_list to lowercase
             normalized_word_list = [word.lower() for word in word_list]
 
